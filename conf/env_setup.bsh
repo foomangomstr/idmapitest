@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+GATEWAY_URL="http://uvm-uatwww2.dev.usher.com:8501"
+TOKEN="yigEz2ZcJ_5zE6m-ZtzX1zJQLYRcLsKaxLXgLZtD_42Oji10RCb0exfqfDYjSUqS64A"
+ORG_ID="1076104"
+
+AUTH_HEADER="Authorization: Bearer $TOKEN"

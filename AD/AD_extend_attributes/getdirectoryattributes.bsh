@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+DIR_NAME=$(dirname $0)
+DIR_NAME=$(cd $DIR_NAME && pwd -P)
+
+. $DIR_NAME/../../conf/env_setup.bsh
+
+URL="$GATEWAY_URL/gateway/api/getdirectoryattributes?org_id=$ORG_ID"
+curl -v $URL -H "$AUTH_HEADER"
