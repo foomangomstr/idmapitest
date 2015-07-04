@@ -4,5 +4,6 @@ DIR_NAME=$(cd $DIR_NAME && pwd -P)
 
 . $DIR_NAME/../../conf/env_setup.bsh
 
-URL="$GATEWAY_URL/gateway/api/getdirectoryattributes?org_id=$ORG_ID"
+URL="$IDM_URL/agent/$ADAPTER_ID/directoryattributes?refresh=1?current_badge_id=$BADGE_ID"
+echo "curl -vk $URL -H \"$AUTH_HEADER\""
 curl -vk $URL -H "$AUTH_HEADER"

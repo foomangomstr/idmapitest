@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+DIR_NAME=$(dirname $0)
+DIR_NAME=$(cd $DIR_NAME && pwd -P)
+
+. $DIR_NAME/../../conf/env_setup.bsh
+
+URL="$IDM_URL/admin/org/$ORG_ID/adapter/config?type_id=4&current_badge_id=$BADGE_ID"
+echo -e "curl -vk $URL -H \"$AUTH_HEADER\""
+curl -vk $URL -H "$AUTH_HEADER"
+
+URL="$IDM_URL/admin/org/adapter/$ADAPTER_ID/config?current_badge_id=$BADGE_ID"
+echo -e "\ncurl -vk $URL -H \"$AUTH_HEADER\""
+curl -vk $URL -H "$AUTH_HEADER"

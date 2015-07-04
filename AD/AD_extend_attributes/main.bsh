@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+DIR_NAME=$(dirname $0)
+DIR_NAME=$(cd $DIR_NAME && pwd -P)
+
+TESTS="getConnection.bsh getDirAttr.bsh"
+
+for i in $TESTS; do
+  bash $DIR_NAME/$i
+done

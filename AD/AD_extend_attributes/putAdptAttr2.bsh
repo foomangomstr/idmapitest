@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+DIR_NAME=$(dirname $0)
+DIR_NAME=$(cd $DIR_NAME && pwd -P)
+
+. $DIR_NAME/../../conf/env_setup.bsh
+
+TEMP_FILE=temp_putAdptAttr2.bash
+
+DATA1='idm_adapter={"adapter_id":"'
+DATA2='","type_id":4,"required_keylist":[{"keyType":"text","keyName":"first_name","instructionalText":"LDAP key for user first name","value":"givenName","nullable":false,"keyId":"first_name","key_name":"first_name"},{"keyType":"text","keyName":"title","instructionalText":"LDAP key for user title","value":"title","nullable":false,"keyId":"title","key_name":"title"},{"keyType":"text","keyName":"email","instructionalText":"LDAP key for user email","value":"mail","nullable":false,"keyId":"email","key_name":"email"},{"keyType":"text","keyName":"ldap_root","instructionalText":"LDAP Root, e.g. OU=MicroStrategy Enterprise,DC=corp,DC=microstrategy,DC=com","value":"OU=usher,DC=SUBTECH1,DC=TECHLABS,DC=COM","nullable":false,"keyId":"ldap_root","key_name":"ldap_root"},{"keyType":"text","keyName":"ldap_domain","instructionalText":"LDAP Domain, e.g. corp","value":"subtech1","nullable":false,"keyId":"ldap_domain","key_name":"ldap_domain"},{"keyType":"text","keyName":"last_name","instructionalText":"LDAP key for user last name","value":"sn","nullable":false,"keyId":"last_name","key_name":"last_name"},{"keyType":"text","keyName":"email_groups","instructionalText":"LDAP key for user email groups","value":"memberOf","nullable":false,"keyId":"email_groups","key_name":"email_groups"},{"keyType":"text","keyName":"full_name","instructionalText":"LDAP key for user full name","value":"cn","nullable":false,"keyId":"full_name","key_name":"full_name"}],"additional_keylist":[{"keyType":"text","keyName":"TEST","value":"extensionattribute6","nullable":true,"keyId":"TEST","key_name":"TEST"},{"keyType":"text","keyName":"office_location","instructionalText":"LDAP key for user office location","value":"physicaldeliveryofficename","nullable":true,"keyId":"office_location","key_name":"office_location"},{"keyType":"text","keyName":"work_phone","instructionalText":"LDAP key for user work phone","value":"telephonenumber","nullable":true,"keyId":"work_phone","key_name":"work_phone"},{"keyType":"text","keyName":"pacs_conf","instructionalText":"Identifier that will be used in PACS agent","value":"description","nullable":true,"keyId":"pacs_conf","key_name":"pacs_conf"},{"keyType":"text","keyName":"phy_badge_num","instructionalText":"Physical badge number for door reader","value":"extensionAttribute12","nullable":true,"keyId":"phy_badge_num","key_name":"phy_badge_num"},{"keyType":"text","keyName":"PHOTO URL","value":"extensionAttribute1","nullable":true,"keyId":"PHOTO URL","key_name":"PHOTO URL"}]}'
+QUOT="'"
+
+echo "curl -vk -X PUT $IDM_URL/admin/org/$ORG_ID/adapter/attributes?current_badge_id=$BADGE_ID -F $QUOT$DATA1$ADAPTER_ID$DATA2$QUOT -H \"$AUTH_HEADER\"" > $TEMP_FILE
+cat $TEMP_FILE
+bash $TEMP_FILE
+rm -f $TEMP_FILE
