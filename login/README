@@ -1,0 +1,15 @@
+This is not an issue. Recently, after Network Manager configuration page was implemented (by Miaobing Jiang), Weitong cleared the schema.sql
+To resolve it, do the following:
+1.	Update NM database: 
+UPDATE `configuration` SET `value` = '2' WHERE `name` = 'hostType';
+UPDATE `configuration` SET `value` = '' WHERE `name` = 'IDMServer';
+2.	Prepare the following:
+a.	IDM Server URL
+b.	License key: run the following SQL statements on IDM Server database
+SELECT * FROM usher_config WHERE config_metadata_id = 13
+3.	Open NM configuration page: https://{NM_HOME_URL}/manageSystem
+4.	Enter IDM Server URL, and click the button
+5.	Enter the license key, and click the button
+6.	On Usher Security Server page, close the browser window directly
+
+

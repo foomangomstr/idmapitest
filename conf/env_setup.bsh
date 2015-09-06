@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 GATEWAY_URL="http://uvm-uatwww2.dev.usher.com:8501"
 IDM_URL="https://api-uat2.usher.com:9001"
-TOKEN="WumGon4nCzvoSwqSQWcd693buQ3-77PLalFg65oSxAtGCvVtYrg1i2cQLDuzBXCpwps"
-ORG_ID="1077409"
-BADGE_ID="1527040"
-ADAPTER_ID="35410"
+#IDM_URL="http://10.197.36.180:9000"
+TOKEN="O1gy_ErALAYUFdb1pcQD0phi4NIyP5Q4PTeb5JG18kLDGa_LN9ktVONZpvkxrqJhJ9Y"
+ORG_ID="1079964"
+BADGE_ID="2373005"
+ADAPTER_ID="36667"
+SECURITY_CODE="c53660f67cb2c87a1f580e189525bd7b27bf299aaf310b3150dcfe530b8bdfa7"
 
 AUTH_HEADER="Authorization: Bearer $TOKEN"

@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+DIR_NAME=$(dirname $0)
+DIR_NAME=$(cd $DIR_NAME && pwd -P)
+
+. $DIR_NAME/../conf/env_setup.bsh
+
+URL="$IDM_URL/reset_password?security_code=$SECURITY_CODE -d email=umadmin%40usheridm.com -d password=um%24Admin1218%40"
+echo "curl -vk -X PUT $URL"
+curl -vk -X PUT $URL
