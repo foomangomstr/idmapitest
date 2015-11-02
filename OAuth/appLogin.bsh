@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+curl -kv -X POST https://api-uat2.usher.com:9001/applogin/2 -F 'badge_id=-4' -F 'email=umadmin@usheridm.com' -F 'password=um$Admin1218@'
